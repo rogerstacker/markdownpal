@@ -1,5 +1,3 @@
-import os
-import tempfile
 from markdownpal.document import MarkdownDocument
 from markdownpal.blocks import H1Block, TextBlock, HRBlock
 
@@ -44,3 +42,10 @@ def test_save_utf8_encoding(tmp_path):
     out = tmp_path / "output.md"
     doc.save(str(out))
     assert out.read_text(encoding="utf-8") == "你好世界"
+
+
+def test_append_non_block_raises():
+    import pytest
+    doc = MarkdownDocument()
+    with pytest.raises(TypeError, match="Expected a Block"):
+        doc.append("not a block")

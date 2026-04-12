@@ -19,3 +19,7 @@ def test_hr_block():
 
 def test_comment_block():
     assert CommentBlock("This is a note").render() == "<!-- This is a note -->"
+
+
+def test_quote_block_multiline():
+    assert QuoteBlock("line one\nline two").render() == "> line one\n> line two"

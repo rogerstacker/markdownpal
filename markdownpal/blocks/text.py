@@ -14,7 +14,7 @@ class QuoteBlock(Block):
         self.text = text
 
     def render(self) -> str:
-        return f"> {self.text}"
+        return "\n".join(f"> {line}" for line in self.text.splitlines())
 
 
 class HRBlock(Block):

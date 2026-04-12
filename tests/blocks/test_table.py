@@ -28,3 +28,9 @@ def test_table_three_columns():
     )
     expected = "| A | B | C |\n| --- | --- | --- |\n| 1 | 2 | 3 |"
     assert block.render() == expected
+
+
+def test_table_row_length_mismatch_raises():
+    import pytest
+    with pytest.raises(ValueError, match="Row 0"):
+        TableBlock(headers=["A", "B"], rows=[["only one"]])

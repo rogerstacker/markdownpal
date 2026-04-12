@@ -6,6 +6,8 @@ class MarkdownDocument:
         self._blocks: list = []
 
     def append(self, block: Block) -> None:
+        if not isinstance(block, Block):
+            raise TypeError(f"Expected a Block instance, got {type(block).__name__}")
         self._blocks.append(block)
 
     def render(self) -> str:
