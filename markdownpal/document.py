@@ -1,9 +1,9 @@
 from markdownpal.blocks.base import Block
 
 
-class MarkdownDocument:
+class Document:
     def __init__(self) -> None:
-        self._blocks: list = []
+        self._blocks: list[Block] = []
 
     def append(self, block: Block) -> None:
         if not isinstance(block, Block):

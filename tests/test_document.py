@@ -1,27 +1,27 @@
-from markdownpal.document import MarkdownDocument
+from markdownpal.document import Document
 from markdownpal.blocks import H1Block, TextBlock, HRBlock
 
 
 def test_render_single_block():
-    doc = MarkdownDocument()
+    doc = Document()
     doc.append(H1Block("Hello"))
     assert doc.render() == "# Hello"
 
 
 def test_render_multiple_blocks_separated_by_blank_line():
-    doc = MarkdownDocument()
+    doc = Document()
     doc.append(H1Block("Title"))
     doc.append(TextBlock("Body text"))
     assert doc.render() == "# Title\n\nBody text"
 
 
 def test_render_empty_document():
-    doc = MarkdownDocument()
+    doc = Document()
     assert doc.render() == ""
 
 
 def test_render_three_blocks():
-    doc = MarkdownDocument()
+    doc = Document()
     doc.append(H1Block("Title"))
     doc.append(HRBlock())
     doc.append(TextBlock("Content"))
@@ -29,7 +29,7 @@ def test_render_three_blocks():
 
 
 def test_save_writes_file(tmp_path):
-    doc = MarkdownDocument()
+    doc = Document()
     doc.append(H1Block("Test"))
     out = tmp_path / "output.md"
     doc.save(str(out))
@@ -37,7 +37,7 @@ def test_save_writes_file(tmp_path):
 
 
 def test_save_utf8_encoding(tmp_path):
-    doc = MarkdownDocument()
+    doc = Document()
     doc.append(TextBlock("你好世界"))
     out = tmp_path / "output.md"
     doc.save(str(out))
@@ -46,6 +46,6 @@ def test_save_utf8_encoding(tmp_path):
 
 def test_append_non_block_raises():
     import pytest
-    doc = MarkdownDocument()
+    doc = Document()
     with pytest.raises(TypeError, match="Expected a Block"):
         doc.append("not a block")

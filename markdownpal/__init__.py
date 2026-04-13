@@ -1,4 +1,4 @@
-from markdownpal.document import MarkdownDocument
+from markdownpal.document import Document
 from markdownpal.blocks import (
     Block,
     H1Block, H2Block, H3Block, H4Block, H5Block, H6Block,
@@ -11,7 +11,7 @@ from markdownpal.blocks import (
 from markdownpal import inline
 
 __all__ = [
-    "MarkdownDocument",
+    "Document",
     "Block",
     "H1Block", "H2Block", "H3Block", "H4Block", "H5Block", "H6Block",
     "TextBlock", "QuoteBlock", "HRBlock", "CommentBlock",

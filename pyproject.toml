@@ -1,11 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "markdownpal"
 version = "0.1.0"
+description = "A pure-Python library for programmatically generating Markdown files."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Rogerstacker", email = "rogerstacker3rd@gmail.com" }
+]
+keywords = ["markdown", "document", "generator", "builder"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Text Processing :: Markup",
+]
 requires-python = ">=3.9"
 dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/rogerstacker/markdownpal"
+Repository = "https://github.com/rogerstacker/markdownpal"
+"Bug Tracker" = "https://github.com/rogerstacker/markdownpal/issues"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
