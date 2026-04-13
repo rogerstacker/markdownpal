@@ -1,4 +1,4 @@
-from markdownpal.inline import bold, italic, code, strikethrough
+from markdownpal.inline import bold, italic, code, strikethrough, sup
 
 
 def test_bold():
@@ -23,3 +23,11 @@ def test_bold_empty_string():
 
 def test_composable():
     assert bold(italic("text")) == "***text***"
+
+
+def test_sup():
+    assert sup("2") == "^2^"
+
+
+def test_sup_empty_string():
+    assert sup("") == "^^"

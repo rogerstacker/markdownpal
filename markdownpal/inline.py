@@ -12,3 +12,7 @@ def code(text: str) -> str:
 
 def strikethrough(text: str) -> str:
     return f"~~{text}~~"
+
+
+def sup(text: str) -> str:
+    return f"^{text}^"
